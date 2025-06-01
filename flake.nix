@@ -104,26 +104,10 @@
     in
     {
       nixosConfigurations = {
-        gram = mkHostConfig {
-          host = "gram";
+        wsl = mkHostConfig rec {
+          host = "wsl";
           system = "x86_64-linux";
-          username = "wovw";
-          modules = [
-            nix-index-database.nixosModules.nix-index
-            (
-              { ... }:
-              {
-                nixpkgs.overlays = [
-                  oskars-dotfiles.overlays.spotx
-                ];
-              }
-            )
-          ];
-        };
-        harpe = mkHostConfig rec {
-          host = "harpe";
-          system = "x86_64-linux";
-          username = "wovw";
+          username = "shrey";
           modules = [
             nix-index-database.nixosModules.nix-index
             nixos-wsl.nixosModules.default
@@ -132,14 +116,6 @@
               wsl.enable = true;
               wsl.defaultUser = username;
             }
-          ];
-        };
-        kfc = mkHostConfig {
-          host = "kfc";
-          system = "x86_64-linux";
-          username = "krispy";
-          modules = [
-            nix-index-database.nixosModules.nix-index
           ];
         };
       };
