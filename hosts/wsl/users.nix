@@ -26,6 +26,10 @@ in
         ];
         shell = pkgs.zsh;
         ignoreShellProgramCheck = true;
+        packages = with pkgs; [
+          avra
+          avro-c
+        ];
         openssh.authorizedKeys.keys = [ ];
       };
     };
